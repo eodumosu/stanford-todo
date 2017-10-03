@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-framework="marionettejs">
+	<head>
+		<meta charset="utf-8">
+		<title>Marionette • TodoMVC</title>
+		<link rel="stylesheet" href="vendor/todomvc-app-css/index.css">
+		<link rel="stylesheet" href="vendor/todomvc-common/base.css">
+		<link rel="stylesheet" href="css/app.css">
+		<script data-main="js/main" src="vendor/requirejs/require.js"></script>
+		
+		<!-- persist data -->
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+			<meta charset=utf-8 />
+  		<script>
+    		(function() {
+      		var txtName = $("#txtName");
+      		var obj = JSON.parse(localStorage.yourObject || '{"Name": ""}');
+      			txtName.val(obj.Name);
+      	// This is obviously hyperactive:
+      		txtName.on("change keypress keyup blur paste click", function() {
+        	obj.Name = txtName.val();
+        	localStorage.yourObject = JSON.stringify(obj);
+      		});
+    	})();
+  </script>
+	</head>
+	<body>
+		<section id="todoapp">
+			<header id="header"></header>
+			<section id="main"></section>
+			<footer id="footer"></footer>
+		</section>
+		<footer id="info">
+			<p>Double-click to edit a todo</p>
+		</footer>
+		<label><code>Name</code> property for our object:
+    		<input type="text" id="txtName">
+  		</label>
+	</body>
+</html>
+<!--
+  Originally created by <a href="http://github.com/jsoverson">Jarrod Overson</a>
+  and <a href="http://github.com/derickbailey">Derick Bailey</a>
+  using <a href="http://marionettejs.com">Backbone.Marionette</a>
+-->
